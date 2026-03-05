@@ -25,10 +25,13 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 // connect to database then start server
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+// Connect to the database
+connectDB();
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
 
+// CRITICAL: Export the Express app for Vercel
 export default app;
